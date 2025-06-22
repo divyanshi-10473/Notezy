@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import bg from '../../../assets/subject-b.png';
-import add from '../../../assets/add-subject.png';
-import { Pencil, Trash2 } from 'lucide-react';
 import AddSubjectDialog from '@/components/main/add-subject';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteSubject, fetchSubjects } from '../../../../store/subject-slice/index';
 import { Button } from '@/components/ui/button';
 import Swal from "sweetalert2";
 import dashboardImage from "../../../assets/d3.png"
-import db from '../../../assets/dbb.png'
 import { useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import CircleProgress from '@/components/common/progresss-bar';
@@ -66,7 +62,7 @@ function SubjectPage() {
 
   return (
     <div className="p-4 min-h-screen bg-cover bg-center bg-no-repeat"
-         style={{ backgroundImage: `url('${db}')` }}>
+         style={{ backgroundImage: `url('/assets/dbb.png')` }}>
 
       {/* 👇 Only show if NOT loading and subjectsList is still empty */}
       {!loading && subjectsList.length === 0 ? (
@@ -94,7 +90,7 @@ function SubjectPage() {
             <div
               key={subject._id}
               className="relative rounded-xl shadow-2xl w-[300px] h-[300px] text-white p-4 bg-cover bg-center flex flex-col justify-between"
-              style={{ backgroundImage: `url(${bg})` }}
+              style={{ backgroundImage: `url('/assets/subject-b.png')` }}
             >
               <div className="flex justify-between items-center">
                 <div className="text-3xl font-bold text-center w-full pt-7">{subject.subject_name}</div>

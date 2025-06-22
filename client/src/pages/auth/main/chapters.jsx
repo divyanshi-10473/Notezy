@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import bg from '../../../assets/bg.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import AddChapterDialog from '@/components/main/add-chapter'
@@ -107,7 +106,7 @@ function ChapterPage() {
   return (
 
     <div className="min-h-screen bg-cover bg-center bg-no-repeat pt-20"
-    style={{ backgroundImage: `url('${bg}')` }}>
+    style={{ backgroundImage: `url('/assets/bg.png')` }}>
   
     {loading ? null : chapterList.length === 0 ? (
       <div className="flex flex-col items-center justify-center h-full text-center p-6">

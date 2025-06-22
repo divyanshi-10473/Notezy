@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useNavigate, useParams } from 'react-router-dom';  
-import bg from '../../assets/19.jpg';
+
 import { Mic, MicOff } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { createNote } from '../../../store/note-slice';  
@@ -112,7 +112,7 @@ function AddNote() {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('${bg}')` }}>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/assets/19.jpg')` }}>
       <div className='min-h-screen backdrop-blur-sm pt-[5%]'>
         <div className="max-w-3xl mx-auto flex flex-col gap-6">
           <div className="flex justify-between items-center mx-5">

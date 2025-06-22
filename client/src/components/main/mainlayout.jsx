@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import db from '../../assets/dbb.png'
+
 import Header from '../../components/main/header';
 
 function MainLayout() {

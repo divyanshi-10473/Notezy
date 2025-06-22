@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import logo from '../../assets/logo.png';
-import bgImg from '../../assets/login-Photoroom.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -56,7 +55,7 @@ const AuthLogin = () => {
       <img src={logo} alt="App Logo" className="h-20 w-60 my-4" />
       <div
         className="mx-auto w-full lg:h-[600px] h-full max-w-md space-y-6 bg-cover bg-center"
-        style={{ backgroundImage: `url(${bgImg})` }}
+        style={{ backgroundImage: `url('/assets/login-Photoroom.png')` }}
       >
         <div className="pl-[17%] py-8 lg:py-14 h-[60vh] custom-padding">
           <h1 className="text-center text-3xl font-bold tracking-tight text-foreground">

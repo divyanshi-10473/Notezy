@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import bg from '../../../assets/notes.png';
-import AddNote from '@/components/main/add-note';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from '@/components/ui/button';
 import {

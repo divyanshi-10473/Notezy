@@ -1,5 +1,4 @@
 import React from 'react';
-import bg4 from '../../assets/notes9.png';
 import logo from '../../assets/logo2.png';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -9,19 +8,19 @@ const Home = () => {
   return (
     <div
       className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${bg4})` }}
+      style={{ backgroundImage: `url('/assets/notes9.png')` }}
     >
       <div className="flex-grow bg-orange-50/10 backdrop-blur-sm">
         {/* Header */}
-        <header className="flex flex-col gap-2 md:flex-row justify-between items-center px-6 py-4">
+        <header className="flex flex-col gap-2 sm:flex-row justify-between items-center px-6 py-4">
           <div className="flex items-center space-x-2">
             <img src={logo} alt="Notezy Logo" className="w-50 h-20 drop-shadow-[0_0_1px_rgba(0,0,0,1)]" />
           </div>
-          <div className="space-x-4 flex">
-            <Button variant="outline" className="text-black border-white hover:bg-white/70 shadow-lg" onClick={() => navigate('/auth/login')}>
+          <div className="space-x-4 w-[90%] flex flex-col sm:flex-row gap-3 sm:gap-0 justify-center ">
+            <Button variant="outline" className="text-black border-white hover:bg-white/70 shadow-lg  " onClick={() => navigate('/auth/login')}>
               Login
             </Button>
-            <Button className="bg-white text-black hover:bg-gray-200 shadow-lg" onClick={() => navigate('/auth/register')}>
+            <Button className="bg-white text-black hover:bg-gray-200 shadow-lg " onClick={() => navigate('/auth/register')}>
               Sign Up
             </Button>
           </div>

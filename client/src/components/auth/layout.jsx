@@ -1,6 +1,5 @@
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import bg4 from '../../assets/notes9.png';
 import { Button } from '../ui/button';
 
 
@@ -9,7 +8,7 @@ const Authlayout = () => {
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${bg4})` }}
+      style={{ backgroundImage: `url('/assets/notes9.png')` }}
     >
       <header>
       <div className="flex justify-end items-center px-6 pt-2 gap-5  right-2 fixed">
