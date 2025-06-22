@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import chapterImage from '../../../assets/chapters.png'
-import chap from '../../../assets/chap.png'
 import bg from '../../../assets/bg.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'

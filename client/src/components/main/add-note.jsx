@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useNavigate, useParams } from 'react-router-dom';  // Import useParams to get chapterId
+import { useNavigate, useParams } from 'react-router-dom';  
 import bg from '../../assets/19.jpg';
 import { Mic, MicOff } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import { createNote } from '../../../store/note-slice';  // Make sure this is the correct import path
+import { createNote } from '../../../store/note-slice';  
 import { toast } from '@/hooks/use-toast';
 
 function AddNote() {
