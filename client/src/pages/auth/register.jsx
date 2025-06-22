@@ -12,8 +12,8 @@ import { useToast } from '@/hooks/use-toast';
 
 const AuthRegister = () => {
 
-  const dispatch = useDispatch(); // Assuming you are using Redux for state management
-  const navigate = useNavigate(); // Assuming you are using react-router-dom for navigation
+  const dispatch = useDispatch(); 
+  const navigate = useNavigate(); 
   const { toast } = useToast()
 
   const [formData, setFormData] = useState({
@@ -50,7 +50,7 @@ const AuthRegister = () => {
     
   };
 
-  console.log('Form Data:', formData);
+ 
 
   return (
     <div className='flex flex-col justify-center items-center'>

@@ -11,11 +11,10 @@ function GoogleLogins() {
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
-        console.log('Google Login Success:', tokenResponse); 
 
       
         const result = await dispatch(loginWithGoogle(tokenResponse)).unwrap();
-        console.log(result);
+       
 
         toast({
           title: result.message || "Google login successful",

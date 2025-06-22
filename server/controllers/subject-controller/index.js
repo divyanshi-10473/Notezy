@@ -4,7 +4,6 @@ const Subject = require("../../models/subject");
 const createSubject = async (req, res) => {
   const { subject_name } = req.body;
   const userId = req.user.id;
-  console.log(userId,"user id to batao")
 
   if (!subject_name) {
     return res.status(400).json({ success:false, message: 'Subject name is required' });

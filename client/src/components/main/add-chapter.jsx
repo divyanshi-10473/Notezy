@@ -42,7 +42,7 @@ const AddChapterDialog = ({
       if (currentEditId) {
        
         const data = await dispatch(editChapter({ id: currentEditId, chapter_name: chapterName.trim() })).unwrap();
-        console.log(data, "edit ka result batao");
+        
         if (data?.success) {
           toast({
             title: "Chapter Updated Successfully",
@@ -70,7 +70,7 @@ const AddChapterDialog = ({
     setOpen(false);
   };
 
-  console.log(chapterName, "chapterName batao phle");
+ 
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

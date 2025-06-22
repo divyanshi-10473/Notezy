@@ -34,7 +34,7 @@ const AddSubjectDialog = ({open,setOpen, currentEditId, setCurrentEditId, curren
     try {
       if (currentEditId) {
         const data = await dispatch(editSubject({ id: currentEditId, subject_name: subjectName.trim() })).unwrap();
-        console.log(data, "edit ka result batana");
+     
         if (data?.success) {
           toast({
             title: "Subject Updated Successfully",
@@ -45,7 +45,7 @@ const AddSubjectDialog = ({open,setOpen, currentEditId, setCurrentEditId, curren
         setCurrentSubjectName("");
       } else {
         const result = await dispatch(createSubject({ subject_name: subjectName.trim() })).unwrap();
-        console.log(result, "resutl batao phle");
+    
         toast({
           title: "Subject Added Successfully",
           className: "bg-white text-black border border-gray-300 h-10 shadow-lg",
@@ -53,7 +53,7 @@ const AddSubjectDialog = ({open,setOpen, currentEditId, setCurrentEditId, curren
       }
       await dispatch(fetchSubjects()).unwrap();
     } catch (errorMessage) {
-      console.log(errorMessage, "error batao phle");
+      console.log(errorMessage);
       toast({
         title: errorMessage,
         className: "text-white bg-red-600 border border-gray-300 h-10 shadow-lg",
@@ -64,7 +64,7 @@ const AddSubjectDialog = ({open,setOpen, currentEditId, setCurrentEditId, curren
     setOpen(false);
   };
   
-  console.log(subjectName, "subjectName batao phle")
+ 
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

@@ -1,11 +1,11 @@
-import { CircleUserRound, HousePlug, LogOut, Menu,  User,  UserCheck,  UserCog } from "lucide-react";
+import {  LogOut,   User,  } from "lucide-react";
 import {
   Link,
   useNavigate,
   
 } from "react-router-dom";
 import logo from '../../assets/logo.png'
-import { Button } from '../ui/button';
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   DropdownMenu,
@@ -15,16 +15,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Avatar, AvatarFallback } from "../ui/avatar";
-import { useEffect, useState } from "react";
-import { Label } from "../ui/label";
+
 import { logoutUser } from "../../../store/auth-slice/index";
 
 
 
 function HeaderRightContent() {
   const { user } = useSelector((state) => state.auth);
-  console.log(user);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

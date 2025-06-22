@@ -116,7 +116,7 @@ const deleteNote = async (req, res) => {
       const parts = note.pdfUrl.split("/");
       const fileName = parts[parts.length - 1];
       const publicId = `pdf_notes/${fileName.split('.')[0]}`;
-      console.log(publicId);
+  
       await cloudinary.uploader.destroy(publicId);
     }
 
@@ -136,7 +136,7 @@ const updateNote = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, content, isFavorite } = req.body;
-   console.log("Update note data:", req.body);
+
     const note = await Note.findById(id);
     if (!note) return res.status(404).json({ success: false, message: "Note not found" });
 

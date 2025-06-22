@@ -44,27 +44,24 @@ const Conversation= require( "../../models/conversation");
 
 const addConversation = async (req, res) => {
   try {
-      console.log('User ID:', req.user.id);
-    console.log('Chat ID:', req.params.id);
-    console.log('Question:', req.body.question);
 
     
     const chat = await Chat.findById(req.params.id);
     
     if (!chat) {
-      console.log('Chat not found');
+   
       return res.status(404).json({ success: false, message: "Chat not found" });
     }
     
     if (chat.userId.toString() !== req.user.id) {
-      console.log('Unauthorized access attempt');
+    
       return res.status(403).json({ success: false, message: "Unauthorized" });
     }
     
     const userQuestion = req.body.question;
     
     const geminiAnswer = await callGeminiAPI(userQuestion);
-    console.log('Gemini Response:', geminiAnswer);
+
     
     const newConversation = await Conversation.create({
       chatId: chat._id,

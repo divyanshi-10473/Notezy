@@ -7,7 +7,7 @@ import { deleteChapter, editChapter, fetchChaptersBySubject } from '../../../../
 import { Button } from '@/components/ui/button'
 import { Eye, Pencil, Trash2 } from 'lucide-react'
 import Swal from 'sweetalert2'
-import dashboardImage from "../../../assets/addchap.png"
+import dashboardImage from "../../../assets/addChap.png"
 import { toast } from '@/hooks/use-toast'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'
 import { MoreVertical } from "lucide-react";
@@ -23,11 +23,11 @@ function ChapterPage() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  console.log(chapterList, "chapters batao phle");
+ 
 
   
   const handleView = (id) => {
-    console.log(id);
+  
     navigate(`/dashboard/notes/${id}`);
   }
 
@@ -45,7 +45,7 @@ function ChapterPage() {
       if (!result.isConfirmed) return;
   
      dispatch(deleteChapter(id)).unwrap().then((data)=>{
-      console.log(data, "delete ka result batao");
+    
       if (data?.success) {
         dispatch(fetchChaptersBySubject(subjectId)).unwrap();
         toast({

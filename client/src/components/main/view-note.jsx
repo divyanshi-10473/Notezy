@@ -101,7 +101,7 @@ function ViewNote() {
       });
     }
   };
-  console.log(title, content, 'title and content');
+
 
   return (
     <div

@@ -30,7 +30,7 @@ export const getChats = createAsyncThunk(
 export const addConversation = createAsyncThunk(
   'chat/addConversation',
   async ({ chatId, question }, { rejectWithValue }) => {
-    console.log('Adding conversation:', { chatId, question });
+   
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/chats/add/${chatId}`,

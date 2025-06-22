@@ -44,7 +44,7 @@ export const updateNote = createAsyncThunk(
   "notes/updateNote",
   async ({ id, title,content }, { rejectWithValue }) => {
     try {
-      console.log(id, title,content, "Update note data:");
+      
       const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/notes/edit/${id}`,{title, content}, {
         withCredentials: true,
       });

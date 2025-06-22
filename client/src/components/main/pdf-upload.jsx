@@ -45,16 +45,16 @@ function PdfUpload({ PdfFile, setPdfFile, uploadedPdfUrl, setUploadedPdfUrl, set
     const data = new FormData();
     data.append('file', PdfFile)
     const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/notes/upload-pdf`, data)
-    console.log(response, "pdfresponsce");
+    
     if(response.data.success) {
-      console.log(response.data);
+    
       setUploadedPdfUrl(response.data.result.secure_url)
       setPdfLoadingState(false);
     };
   }
 
   useEffect(()=>{
-    console.log(PdfFile, "file aayi ki nhi")
+   
     if(PdfFile!==null) uploadPdfToCloudinary()
 
   },[PdfFile])

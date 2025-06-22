@@ -11,7 +11,7 @@ export const fetchChaptersBySubject = createAsyncThunk(
   "chapters/fetchChaptersBySubject",
   async (subjectId, { rejectWithValue }) => {
     try {
-      console.log(subjectId, "subjectId batao phle")
+    
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/chapters/get/${subjectId}`, {
         withCredentials: true,
       });

@@ -101,7 +101,7 @@ function AddNote() {
         className: "bg-green-500 text-white",
       });
   
-      console.log("Saving note:", { title, content, chapterId });
+     
       navigate(-1); 
     } catch (error) {
       toast({

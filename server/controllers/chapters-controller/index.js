@@ -58,7 +58,7 @@ const createChapter = async (req, res) => {
 const getChaptersBySubject = async (req, res) => {
   try {
     const { subjectId } = req.params;
-    console.log(subjectId, "subjectId batao phle")
+  
     const userId = req.user.id;
     
     const chapters = await Chapter.find({ subjectId, userId });

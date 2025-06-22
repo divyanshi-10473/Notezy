@@ -33,7 +33,7 @@ const AuthLogin = () => {
     try {
       
       const result = await dispatch(loginUser(formData)).unwrap();
-      console.log('Login Result:', result); // Log the result for debugging
+   
       toast({
         title: result.message,
         className: "bg-white text-black border border-gray-300 h-10 shadow-lg",

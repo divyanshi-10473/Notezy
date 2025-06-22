@@ -98,11 +98,11 @@ const subjectSlice = createSlice({
         state.isLoading = true;
 
     }).addCase(fetchSubjects.fulfilled,(state,action)=>{
-        console.log(action.payload.data);
+   
         state.isLoading = false;
         state.subjectsList = action?.payload?.data;
     }).addCase(fetchSubjects.rejected,(state,action)=>{
-        console.log(action.payload.data);
+        
         state.isLoading = false;
         state.subjectsList = [];
     })
