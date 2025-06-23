@@ -17,7 +17,7 @@ import { Label } from '@/components/ui/label';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNote, deleteNote, fetchNotesByChapter, toggleFavorite } from '../../../../store/note-slice';
-import { ExternalLink, Star } from 'lucide-react';
+import { ExternalLink, Star, Trash2 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import Swal from 'sweetalert2';
 import PdfUpload from '@/components/main/pdf-upload';
@@ -203,7 +203,7 @@ function NotePage() {
                               onClick={() => handleDelete(note._id)}
                               title="Delete note"
                             >
-                              🗑️
+                              <Trash2 />
                             </Button>
                           </div>
                         </div>
@@ -223,19 +223,19 @@ function NotePage() {
             <TabsContent value="typed">
               <div>
                 <div className="flex justify-end mb-4">
-                  <Button
+                  <button
                     variant={showStarredOnly ? "default" : "outline"}
-                    className="shadow-xl mr-3 hover:bg-white hover:text-black"
+                    className="shadow-xl mr-3 hover:bg-white hover:text-black text-sm sm:text-[16px] rounded-md p-1 sm:p-2"
                     onClick={() => setShowStarredOnly(prev => !prev)}
                   >
                     {showStarredOnly ? "Show All" : "Show Starred"}
-                  </Button>
-                  <Button
-                    className="px-3 bg-white shadow-xl hover:scale-105"
+                  </button>
+                  <button
+                    className="px-3 bg-white shadow-xl hover:scale-105 text-sm rounded-md p-1 sm:text-[16px] sm:p-2"
                     onClick={() => navigate(`/notes/add/${chapterId}`)}
                   >
                     Add Notes
-                  </Button>
+                  </button>
                 </div>
 
                 <div className="space-y-3 bg-white p-4 rounded-xl shadow-md w-[100%] max-h-[60vh] overflow-y-scroll">
@@ -244,7 +244,7 @@ function NotePage() {
                     ?.filter(note => (showStarredOnly ? note.isFavorite : true))
                     ?.map(note => (
                       <div key={note._id} className="w-full">
-                        <div className="flex justify-between items-center hover:bg-gray-100 p-4 rounded-lg transition duration-200 ease-in-out w-full">
+                        <div className="flex justify-between items-center hover:bg-gray-100 p-2 sm:p-4 rounded-lg transition duration-200 ease-in-out w-full">
                           <div className="flex justify-start items-center w-full">
                             <Button
                               size="icon"
@@ -269,7 +269,7 @@ function NotePage() {
                               onClick={() => handleDelete(note._id)}
                               title="Delete note"
                             >
-                              🗑️
+                              <Trash2 />
                             </Button>
                           </div>
                         </div>

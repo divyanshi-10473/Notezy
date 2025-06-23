@@ -117,8 +117,8 @@ function AddNote() {
         <div className="max-w-3xl mx-auto flex flex-col gap-6">
           <div className="flex justify-between items-center mx-5">
             <Input
-              placeholder="Enter note title..."
-              className="text-xl font-semibold bg-white/75 border border-gray-300 rounded-lg p-4 shadow-2xl w-full"
+              placeholder="Enter title..."
+              className="text-sm font-semibold bg-white/75 border border-gray-300 rounded-lg p-4 shadow-2xl w-full"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -150,7 +150,7 @@ function AddNote() {
           <div className='w-100 mx-5'>
             <Textarea
               rows={20}
-              className="w-full text-lg bg-white/55 border border-gray-300 rounded-lg p-4 shadow-2xl"
+              className="w-full text-sm md:text-lg bg-white/55 border border-gray-300 rounded-lg p-4 shadow-2xl"
               placeholder="Type or dictate your notes here..."
               value={content + interimText}
               onChange={(e) => setContent(e.target.value)}
