@@ -117,7 +117,7 @@ function ViewNote() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Note title"
-                className="text-xl font-semibold bg-white/75 border border-gray-300 rounded-lg p-4 shadow-2xl w-full"
+                className="text-sm sm:text-base font-semibold bg-white/75 border border-gray-300 rounded-lg p-4 shadow-2xl w-full"
               />
            
             <div className="flex gap-2">
@@ -153,7 +153,7 @@ function ViewNote() {
            
               <Textarea
                 rows={20}
-                className="w-[93%] text-lg bg-white/55 border border-gray-300 rounded-lg p-4 shadow-2xl m-auto"
+                className="w-[93%] text-sm sm:text-lg bg-white/55 border border-gray-300 rounded-lg p-4 shadow-2xl m-auto"
                 placeholder="Type or dictate your notes..."
                 value={content + interimText}
                 onChange={(e) => setContent(e.target.value)}
@@ -178,7 +178,7 @@ function ViewNote() {
            <div className='max-w-7xl m-auto'>
                <div className="flex justify-between items-center mx-5">
            
-              <h1 className="text-xl font-semibold bg-white/75 border border-gray-300 rounded-lg p-2 shadow-2xl w-full"> {note?.title}</h1>
+              <h1 className="text-sm sm:text-base font-semibold bg-white/75 border border-gray-300 rounded-lg p-2 shadow-2xl w-full"> {note?.title}</h1>
            
             <div className="flex gap-2">
              
@@ -198,7 +198,7 @@ function ViewNote() {
 
             </div>
           </div>
-                   <div className="bg-white/60 text-lg  p-4 rounded-xl border shadow-xl whitespace-pre-wrap mx-5 h-[70vh] overflow-y-scroll mt-4">
+                   <div className="bg-white/60 text-sm sm:text-lg  p-4 rounded-xl border shadow-xl whitespace-pre-wrap mx-5 h-[70vh] overflow-y-scroll mt-4">
                 {note?.content}
               </div>
            </div>

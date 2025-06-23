@@ -84,7 +84,7 @@ const Chatbot = () => {
 
        
         {currentChatId ? (
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-4 flex items-center gap-2 ">
             <input
               value={question}
               onChange={(e) => setQuestion(e.target.value)}

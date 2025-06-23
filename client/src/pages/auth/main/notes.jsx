@@ -101,9 +101,9 @@ function NotePage() {
   return (
     <div className="min-h-screen pt-20 px-4 flex flex-col gap-6 bg-orange-50">
       <div className="container mx-auto grid grid-cols-1 gap-8 py-8">
-        <div className="flex flex-col rounded-lg border border-white bg-background p-6 shadow-2xl bg-black/10">
+        <div className="flex flex-col rounded-lg border border-white bg-background p-2 sm:p-6 shadow-2xl bg-black/10">
           <Tabs defaultValue="typed">
-            <TabsList>
+            <TabsList className="p-4 sm:p-0 mb-6 sm:mb-0">
               <TabsTrigger
                 value="typed"
                 className="data-[state=active]:bg-[#35291D] data-[state=active]:text-white px-5 rounded-xl"
@@ -182,7 +182,7 @@ function NotePage() {
                               {note.isFavorite ? "⭐" : <Star />}
                             </Button>
                             <p
-                              className="font-medium text-lg truncate cursor-pointer w-[90%]"
+                              className="font-medium text-sm md:text-lg truncate cursor-pointer w-[90%]"
                               onClick={() => window.open(note.pdfUrl, "_blank")}
                               title="Click to view PDF"
                             >
@@ -256,7 +256,7 @@ function NotePage() {
                               {note.isFavorite ? "⭐" : <Star />}
                             </Button>
                             <p
-                              className="font-medium text-lg truncate cursor-pointer w-[90%]"
+                              className="font-medium text-sm md:text-lg truncate cursor-pointer w-[90%]"
                               onClick={() => navigate(`/notes/view/${note._id}`)}
                             >
                               {note.title}
