@@ -3,6 +3,7 @@ import logo from '../../assets/logo2.png';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { Book, FileText, Lightbulb, Star, Users } from 'lucide-react';
+import cutu from '../../assets/cutu.png'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -12,9 +13,9 @@ const Home = () => {
       style={{ backgroundImage: `url('/assets/notes9.png')` }}
     >
       <div className="flex-grow bg-orange-50/10 backdrop-blur-sm">
-        {/* Header */}
+      
 <header className="w-full px-6 py-4 flex flex-col sm:flex-row items-center justify-between bg-transparent">
-  {/* Logo */}
+ 
   <div className="flex justify-center sm:justify-start w-full sm:w-auto">
     <img
       src={logo}
@@ -22,19 +23,14 @@ const Home = () => {
       className="h-20 object-contain drop-shadow-[0_0_4px_rgba(0,0,0,0.8)]"
     />
   </div>
-
-  {/* Navigation + Actions */}
   <div className="sm:flex flex-col sm:flex-row items-center gap-4 mt-4 sm:mt-0 w-full sm:w-auto justify-center sm:justify-end hidden">
-    
-    {/* How It Works */}
+
           <button
             onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-8 py-3 text-lg rounded-full border border-white/30 hover:bg-white hover:text-black transition w-full sm:w-auto"
           >
             How It Works
           </button>
-
-    {/* Login Button */}
     <Button
       variant="outline"
       className="text-black bg-white/90 border-white hover:bg-white hover:text-black shadow-md w-full sm:w-auto"
@@ -43,7 +39,6 @@ const Home = () => {
       Login
     </Button>
 
-    {/* Sign Up Button */}
     <Button
       className="bg-white text-black hover:bg-gray-200 shadow-md w-full sm:w-auto"
       onClick={() => navigate("/auth/register")}
@@ -53,11 +48,17 @@ const Home = () => {
   </div>
 </header>
 
+<div className="sm:hidden w-full flex justify-center mt-4">
+  <img
+    src={cutu}
+    alt="Study illustration"
+    className="w-3/4 max-w-xs drop-shadow-lg rounded-xl"
+  />
+</div>
 
 
 
-        {/* Hero Section */}
-        <main className="flex flex-col justify-center items-center px-6 md:px-24 h-[calc(100vh-160px)]">
+        <main className="flex flex-col justify-center items-center px-6 md:px-24 sm:h-[calc(100vh-160px)] h-[400px]">
           <div className="max-w-xl text-white flex flex-col justify-center items-center">
             <h2
               className="text-center text-4xl md:text-6xl font-bold mb-4"
