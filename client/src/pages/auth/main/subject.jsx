@@ -66,7 +66,7 @@ function SubjectPage() {
 
       {/* 👇 Only show if NOT loading and subjectsList is still empty */}
       {!loading && subjectsList.length === 0 ? (
-        <div className="flex flex-col items-center justify-center h-full text-center p-6">
+        <div className="flex flex-col items-center justify-center h-screen text-center ">
           <img src={dashboardImage} alt="No subjects" className="w-{200px} mb-4" />
           <h2 className="text-2xl font-semibold text-gray-700 mb-2">No Subjects Yet</h2>
           <p className="text-gray-500 mb-4">Start by adding your first subject to organize your notes.</p>
