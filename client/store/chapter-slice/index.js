@@ -6,14 +6,21 @@ const initialState = {
   chapterList: [],
 };
 
-// Fetch chapters for a specific subject
+const getAuthHeader = () => {
+  const token = JSON.parse(sessionStorage.getItem("token"));
+  if (!token) return {};
+  return {
+    Authorization: `Bearer ${token}`,
+  };
+};
+
 export const fetchChaptersBySubject = createAsyncThunk(
   "chapters/fetchChaptersBySubject",
   async (subjectId, { rejectWithValue }) => {
     try {
     
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/chapters/get/${subjectId}`, {
-        withCredentials: true,
+        headers: getAuthHeader(),
       });
       return response?.data;
     } catch (err) {
@@ -30,7 +37,7 @@ export const createChapter = createAsyncThunk(
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/chapters/create`,
         { chapter_name, subjectId },
-        { withCredentials: true }
+        {  headers: getAuthHeader() }
       );
       return response?.data;
     } catch (err) {
@@ -47,7 +54,7 @@ export const editChapter = createAsyncThunk(
       const response = await axios.put(
         `${import.meta.env.VITE_API_URL}/api/chapters/edit/${id}`,
         { chapter_name, isCompleted },
-        { withCredentials: true }
+        {  headers: getAuthHeader()}
       );
       return response?.data;
     } catch (err) {
@@ -63,7 +70,7 @@ export const deleteChapter = createAsyncThunk(
     try {
       const response = await axios.delete(
         `${import.meta.env.VITE_API_URL}/api/chapters/delete/${id}`,
-        { withCredentials: true }
+        {  headers: getAuthHeader()}
       );
       return response?.data;
     } catch (err) {
@@ -90,6 +97,8 @@ const chapterSlice = createSlice({
         state.isLoading = false;
         state.chapterList = [];
       })
+
+
 
 
   },

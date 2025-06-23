@@ -11,9 +11,16 @@ export const fetchSubjects = createAsyncThunk(
   "subjects/fetchSubjects",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/subjects/get`, {
-        withCredentials: true,
-      });
+      const token = JSON.parse(sessionStorage.getItem('token')); // Get token from storage
+
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/subjects/get`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       return response?.data; 
     } catch (err) {
       if (err.response && err.response.data) {
@@ -31,8 +38,11 @@ export const fetchSubjects = createAsyncThunk(
     "subjects/createSubject",
     async (subject_name, { rejectWithValue }) => {
       try {
+         const token = JSON.parse(sessionStorage.getItem("token"));
         const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/subjects/create`, subject_name, {
-          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
         return response?.data;
       } catch (err) {
@@ -47,44 +57,58 @@ export const fetchSubjects = createAsyncThunk(
 
   
  
-  export const editSubject = createAsyncThunk(
-    "subjects/editSubject",
-    async ({ id, subject_name }, { rejectWithValue }) => {
-      try {
-        const response = await axios.put(
-          `${import.meta.env.VITE_API_URL}/api/subjects/edit/${id}`,
-          { subject_name },
-          { withCredentials: true }
-        );
-        return response?.data;
-      } catch (err) {
-        if (err.response && err.response.data) {
-          return rejectWithValue(err.response.data.message);
-        } else {
-          return rejectWithValue("Something went wrong");
-        }
-      }
-    }
-  );
+export const editSubject = createAsyncThunk(
+  "subjects/editSubject",
+  async ({ id, subject_name }, { rejectWithValue }) => {
+    try {
+      const token = JSON.parse(sessionStorage.getItem("token"));
 
-  export const deleteSubject = createAsyncThunk(
-    "subjects/deleteSubject",
-    async (id, { rejectWithValue }) => {
-      try {
-        const response = await axios.delete(
-          `${import.meta.env.VITE_API_URL}/api/subjects/delete/${id}`,
-          { withCredentials: true }
-        );
-        return response?.data;
-      } catch (err) {
-        if (err.response && err.response.data) {
-          return rejectWithValue(err.response.data.message);
-        } else {
-          return rejectWithValue("Something went wrong");
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/subjects/edit/${id}`,
+        { subject_name },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
+      );
+      return response?.data;
+    } catch (err) {
+      if (err.response && err.response.data) {
+        return rejectWithValue(err.response.data.message);
+      } else {
+        return rejectWithValue("Something went wrong");
       }
     }
-  );
+  }
+);
+
+
+export const deleteSubject = createAsyncThunk(
+  "subjects/deleteSubject",
+  async (id, { rejectWithValue }) => {
+    try {
+      const token = JSON.parse(sessionStorage.getItem("token"));
+
+      const response = await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/subjects/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response?.data;
+    } catch (err) {
+      if (err.response && err.response.data) {
+        return rejectWithValue(err.response.data.message);
+      } else {
+        return rejectWithValue("Something went wrong");
+      }
+    }
+  }
+);
+
   
 
 

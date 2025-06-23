@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 
-import { logoutUser } from "../../../store/auth-slice/index";
+import {  resetTokenAndCredentials } from "../../../store/auth-slice/index";
 
 
 
@@ -28,7 +28,11 @@ function HeaderRightContent() {
 
 
   function handleLogout() {
-    dispatch(logoutUser());
+    dispatch(resetTokenAndCredentials());
+    sessionStorage.clear();
+    navigate("/auth/login");
+    // dispatch(logoutUser());
+
    
   }
 

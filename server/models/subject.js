@@ -4,7 +4,6 @@ const subjectSchema = new mongoose.Schema({
   subject_name: {
     type: String,
     required: true,
-    unique: true,
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -18,6 +17,9 @@ const subjectSchema = new mongoose.Schema({
     },
   ],
 }, { timestamps: true });
+
+subjectSchema.index({ subject_name: 1, userId: 1 }, { unique: true });
+
 
 const Subject = mongoose.model('Subject', subjectSchema);
 

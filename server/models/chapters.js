@@ -4,7 +4,6 @@ const chapterSchema = new mongoose.Schema({
     chapter_name: {
       type: String,
       required: true,
-      unique: true
     },
     subjectId: {
       type: mongoose.Schema.Types.ObjectId,

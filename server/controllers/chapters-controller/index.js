@@ -28,7 +28,6 @@ const createChapter = async (req, res) => {
       });
     }
 
-    // Create the chapter
     const newChapter = new Chapter({ chapter_name, subjectId, userId });
     await newChapter.save();
 

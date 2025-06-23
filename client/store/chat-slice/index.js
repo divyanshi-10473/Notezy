@@ -3,11 +3,21 @@ import axios from 'axios';
 
 const API = `${import.meta.env.VITE_API_URL}/api/chats`;
 
+const getAuthHeader = () => {
+  const token = JSON.parse(sessionStorage.getItem("token"));
+  if (!token) return {};
+  return {
+    Authorization: `Bearer ${token}`,
+  };
+};
+
+
 export const createChat = createAsyncThunk(
   'chat/createChat',
   async (_, { rejectWithValue }) => {
     try {
-      const res = await axios.post(`${API}/new`, {}, { withCredentials: true });
+      const res = await axios.post(`${API}/new`, {}, { headers: getAuthHeader() }
+);
       return res.data.chat;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to create chat');
@@ -19,7 +29,7 @@ export const getChats = createAsyncThunk(
   'chat/getChats',
   async (_, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`${API}/all`, { withCredentials: true });
+      const res = await axios.get(`${API}/all`, { headers: getAuthHeader() });
       return res.data.chats;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to fetch chats');
@@ -35,7 +45,7 @@ export const addConversation = createAsyncThunk(
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/chats/add/${chatId}`,
         { question },
-        { withCredentials: true }
+        { headers: getAuthHeader()  }
       );
       return res.data;
     } catch (err) {
@@ -50,7 +60,7 @@ export const getConversations = createAsyncThunk(
   'chat/getConversations',
   async (chatId, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`${API}/get/${chatId}`, { withCredentials: true });
+      const res = await axios.get(`${API}/get/${chatId}`, { headers: getAuthHeader() });
       return res.data.conversations;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to fetch conversation');
@@ -62,7 +72,7 @@ export const deleteChat = createAsyncThunk(
   'chat/deleteChat',
   async (chatId, { rejectWithValue }) => {
     try {
-      await axios.delete(`${API}/delete/${chatId}`, { withCredentials: true });
+      await axios.delete(`${API}/delete/${chatId}`, {headers: getAuthHeader()  });
       return chatId;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to delete chat');

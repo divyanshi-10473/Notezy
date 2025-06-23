@@ -4,22 +4,21 @@ const Subject = require("../../models/subject");
 const createSubject = async (req, res) => {
   const { subject_name } = req.body;
   const userId = req.user.id;
-
   if (!subject_name) {
     return res.status(400).json({ success:false, message: 'Subject name is required' });
   }
 
   try {
-    const checkSubject = await Subject.findOne({ subject_name });
+    const checkSubject = await Subject.findOne({ subject_name ,userId});
     if (checkSubject) {
       return res.status(400).json({ success: false, message: "Subject already exists" });
     }
     const newSubject = new Subject({ subject_name, userId })
     await newSubject.save();
-    res.status(201).json(newSubject);
+    res.status(201).json({ success: true, data: newSubject });
   } catch (err) {
     console.error('Error creating subject:', err)
-    res.status(500).json({ error: 'Failed to create subject' })
+    res.status(500).json({ success: false, message: 'Failed to create subject' });
   }
 };
 

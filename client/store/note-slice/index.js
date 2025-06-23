@@ -12,9 +12,13 @@ export const fetchNotesByChapter = createAsyncThunk(
   "notes/fetchNotesByChapter",
   async (chapterId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/notes/get/${chapterId}`, {
-        withCredentials: true,
-      });
+const token = JSON.parse(sessionStorage.getItem("token"));
+const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/notes/get/${chapterId}`, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
       return response?.data || { success: false, message: "No data found" };
     } catch (err) {
       const errorMessage = err?.response?.data?.message || err.message || "Failed to fetch notes";
@@ -28,10 +32,14 @@ export const createNote = createAsyncThunk(
   "notes/createNote",
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/notes/create`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-        withCredentials: true,
-      });
+const token = JSON.parse(sessionStorage.getItem("token"));
+const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/notes/create`, formData, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "multipart/form-data",
+  },
+});
+
       return response?.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || "Failed to create note");
@@ -45,9 +53,13 @@ export const updateNote = createAsyncThunk(
   async ({ id, title,content }, { rejectWithValue }) => {
     try {
       
-      const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/notes/edit/${id}`,{title, content}, {
-        withCredentials: true,
-      });
+const token = JSON.parse(sessionStorage.getItem("token"));
+const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/notes/edit/${id}`, { title, content }, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
       return response?.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || "Failed to update note");
@@ -59,9 +71,13 @@ export const getNoteById = createAsyncThunk(
   "notes/getNoteById",
   async (noteId, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/notes/getNote/${noteId}`, {
-        withCredentials: true,
-      });
+const token = JSON.parse(sessionStorage.getItem("token"));
+const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/notes/getNote/${noteId}`, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
       return response?.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || "Failed to fetch note");
@@ -76,9 +92,13 @@ export const toggleFavorite = createAsyncThunk(
   "notes/toggleFavorite",
   async (noteId, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/notes/favorite/${noteId}`, {}, {
-        withCredentials: true,
-      });
+const token = JSON.parse(sessionStorage.getItem("token"));
+const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/notes/favorite/${noteId}`, {}, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
       return response?.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || "Failed to toggle favorite");
@@ -91,9 +111,13 @@ export const deleteNote = createAsyncThunk(
   "notes/deleteNote",
   async (noteId, { rejectWithValue }) => {
     try {
-      const response= await axios.delete(`${import.meta.env.VITE_API_URL}/api/notes/delete/${noteId}`, {
-        withCredentials: true,
-      });
+const token = JSON.parse(sessionStorage.getItem("token"));
+const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/notes/delete/${noteId}`, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
       return response?.data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || "Failed to delete note");
