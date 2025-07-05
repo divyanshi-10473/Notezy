@@ -9,7 +9,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div
-      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat bg-orange-200"
       style={{ backgroundImage: `url('/assets/notes9.png')` }}
     >
       <div className="flex-grow bg-orange-50/10 backdrop-blur-sm">
@@ -67,7 +67,7 @@ const Home = () => {
               Welcome to Notezy
             </h2>
             <p
-              className="text-center text-lg md:text-xl mb-6"
+              className="text-center text-lg md:text-xl mb-6 text-slate-700"
               style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.2)' }}
             >
               Organize your study materials, upload and create notes, and stay productive like never before.

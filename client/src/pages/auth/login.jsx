@@ -54,7 +54,7 @@ const AuthLogin = () => {
     <div className='flex flex-col justify-center items-center'>
       <img src={logo} alt="App Logo" className="h-20 w-60 my-4" />
       <div
-        className="mx-auto w-full lg:h-[600px] h-full max-w-md space-y-6 bg-cover bg-center"
+        className="mx-auto w-full lg:h-[600px] h-full max-w-md space-y-6 bg-cover bg-center "
         style={{ backgroundImage: `url('/assets/login-Photoroom.png')` }}
       >
         <div className="pl-[17%] py-8 lg:py-14 h-[60vh] custom-padding">

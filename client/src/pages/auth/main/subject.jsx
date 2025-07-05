@@ -63,8 +63,9 @@ function SubjectPage() {
   );
 
   return (
-    <div className="p-4 min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('/assets/dbb.png')` }}>
+    <div className="p-4 min-h-screen bg-cover bg-center bg-no-repeat bg-orange-100"
+      style={{ backgroundImage: `url('/assets/dbb.png')` }}
+      >
 
       {!loading && subjectsList.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-screen text-center">

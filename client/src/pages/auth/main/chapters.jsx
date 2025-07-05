@@ -92,8 +92,9 @@ function ChapterPage() {
   );
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat pt-20"
-      style={{ backgroundImage: `url('/assets/bg.png')` }}>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat pt-20 bg-orange-100"
+      style={{ backgroundImage: `url('/assets/bg.png')` }}
+      >
 
       {loading ? null : chapterList.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-full text-center p-6">
