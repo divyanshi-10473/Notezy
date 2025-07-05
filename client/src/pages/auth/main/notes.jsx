@@ -100,7 +100,7 @@ function NotePage() {
 
   return (
     <div className="min-h-screen pt-20 px-4 flex flex-col gap-6 bg-orange-50">
-      <div className="container mx-auto grid grid-cols-1 gap-8 py-8">
+      <div className="container mx-auto grid grid-cols-1 gap-8 py-8  max-w-6xl">
         <div className="flex flex-col rounded-lg border border-white bg-background p-2 sm:p-6 shadow-2xl bg-black/10">
           <Tabs defaultValue="typed">
             <TabsList className="p-4 sm:p-0 mb-6 sm:mb-0">
