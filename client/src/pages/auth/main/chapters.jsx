@@ -97,8 +97,8 @@ function ChapterPage() {
       >
 
       {loading ? null : chapterList.length === 0 ? (
-        <div className="flex flex-col items-center justify-center h-full text-center p-6">
-          <img src={dashboardImage} alt="No subjects" className="w-[200px] mb-4" />
+        <div className="flex flex-col items-center justify-center h-full text-center p-6 min-h-[80vh]">
+          <img src={dashboardImage} alt="No subjects" className="w-[400px] mb-4" />
           <h2 className="text-2xl font-semibold text-gray-700 mb-2">No Chapters Yet</h2>
           <p className="text-gray-500 mb-4">Start by adding your first chapter to organize your notes.</p>
           <AddChapterDialog
@@ -113,7 +113,7 @@ function ChapterPage() {
         </div>
       ) : (
 <div className="px-4 mb-6">
-  {/* Add Chapter Button */}
+
   <div className="flex justify-end mb-4">
     <AddChapterDialog
       open={open}
@@ -224,7 +224,7 @@ function ChapterPage() {
         </div>
       ))}
 
-      {!loading && filteredChapters.length === 0 && (
+      {!loading && chapterList.length>0 && filteredChapters.length === 0 && (
         <p className="text-center text-gray-500 mt-10">No chapters match your search.</p>
       )}
     </div>
